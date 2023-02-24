@@ -1,0 +1,180 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, Arial, Helvetica, sans-serif;
+    direction: rtl;
+    transition: 0.5s;
+}
+:root{
+    --labelfontColor : rgb(0, 92, 123);
+    --inputfontColor : #333;
+}
+.mainPageContent{}
+.mainPageContent .title{
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    margin: 0 0 30px;
+    color: var(--labelfontColor);
+    font-weight: 700;
+    font-size: 24px;
+    word-spacing: 5px;
+    font-style: italic;
+    box-shadow: 0 0 10px 0 var(--labelfontColor);
+}
+.mainPageContent .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.mainPageContent .container .inputDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 20px;
+    flex-wrap: wrap;
+}
+.mainPageContent .container .inputDiv label{
+    color: var(--labelfontColor);
+    font-weight: 600;
+    margin: 10px 0;
+}
+.mainPageContent .container .inputDiv label[for="numberOfdoingmorethan40"] , .mainPageContent .container .inputDiv label[for="numberOfdoinglessthan40"]{
+    margin: 0 10px;
+    font-size: 12px;
+}
+.mainPageContent .container .inputDiv input , .mainPageContent .container .inputDiv select {
+    margin:0 20px;
+    border: none;
+    box-shadow: 0 0 10px 1px #ddd;
+    border-radius: 5px;
+    color: var(--inputfontColor);
+    padding: 5px 10px;
+    font-weight: 500;
+    box-shadow: 0 0 5px 0 var(--labelfontColor);
+}
+.mainPageContent .container .inputDiv input[type="radio"]{
+    box-shadow: none;
+}
+.mainPageContent .container .inputDiv .inputAnimation{
+    animation-name: animation;
+    animation-direction: initial;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: initial;
+}
+.mainPageContent .container .inputDiv select{
+    margin: 0 20px;
+}
+.mainPageContent .container .inputDiv option{}
+.mainPageContent .container .buttonDiv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.mainPageContent .container .buttonDiv button{
+    border: none;
+    background: none;
+    box-shadow: 0 0 10px 1px #ddd;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-weight: 600;
+    color: var(--labelfontColor);
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 0 5px 0px var(--labelfontColor);
+}
+
+
+/* results */
+
+.mainPageContent .results{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 100px;
+}
+hr{
+    border: none;
+    background: var(--labelfontColor);
+    /* height: 0.1px; */
+    box-shadow: 0 0 15px 2px var(--labelfontColor);
+    margin: 20px 0;
+    width: 100%;
+}
+.mainPageContent .results .partTitle{
+    width: 100%;
+    text-align: center;
+    margin: 45px 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--labelfontColor);
+    font-style: italic;
+    position: relative;
+}
+.mainPageContent .results .partTitle::after{
+    content: '';
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 1px;
+    background-color: var(--labelfontColor);
+}
+.mainPageContent .results .table{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 10px;
+}
+.mainPageContent .results .table .tableTitle{
+    width: 100%;
+    margin: 10px 0;
+    color: var(--labelfontColor);
+    font-weight: 500;
+    text-align: center;
+}
+.mainPageContent .results .table .tableColumn{
+    border-radius: 5px;
+    width: 220px;
+    margin: 1.5px;
+    box-shadow: 0 0 5px 1px #ddd;
+    overflow: hidden;
+}
+.mainPageContent .results .table .tableColumn .columnHead{
+    color: #fff;
+    background: cornflowerblue;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    padding: 5px 10px;
+}
+.mainPageContent .results .table .tableColumn .columnbody{
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px;
+}
+
+@keyframes animation {
+    0%{
+        transform: translateX(0px);
+        box-shadow: 0 0 5px 0 tomato;
+    }
+    50%{
+        transform: translateX(5px);
+        box-shadow: 0 0 5px 0 tomato;
+    }
+    100%{
+        transform: translateX(0px);
+        box-shadow: 0 0 5px 0 tomato;
+    }
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="mainPageContent">
+        <div class="title">تصميم خلطة خرسانية</div>
+        <div class="container">
+            <div class="inputDiv">
+                <label for="cementDensity">الوزن النوعي للأسمنت : </label>
+                <input type="number" id="cementDensity" required placeholder="مطلوب" value="3.15">
+            </div>
+            <div class="inputDiv">
+                <label for="largAggspecificweight">الوزن الحجمي للركام كجم/م مكعب : </label>
+                <input type="number" id="largAggspecificweight" required placeholder="مطلوب" value="1475">
+            </div>
+            <div class="inputDiv">
+                <label for="largAggdensity">الوزن النوعي للركام : </label>
+                <input type="number" id="largAggdensity" required placeholder="مطلوب" value="2.6">
+            </div>
+            <div class="inputDiv">
+                <label for="smallAggspecificweight">الوزن الحجمي للرمل كجم/م مكعب : </label>
+                <input type="number" id="smallAggspecificweight" required placeholder="مطلوب" value="1525">
+            </div>
+            <div class="inputDiv">
+                <label for="smallAggdensity">الوزن النوعي للرمل : </label>
+                <input type="number" id="smallAggdensity" required placeholder="مطلوب" value="2.5">
+            </div>
+            <div class="inputDiv">
+                <label for="Fcu">المقاومة المميزة كجم/سم مربع : </label>
+                <input type="number" id="Fcu" required placeholder="مطلوب" autofocus>
+            </div>
+            <div class="inputDiv">
+                <label for="days">الفترة  المطلوب عندها المقاومة : </label>
+                <select name="" id="days" required>
+                    <option value="91">91 يوما</option>
+                    <option value="28" selected>28 يوما</option>
+                    <option value="7">7 أيام</option>
+                    <option value="3">3 أيام</option>
+                </select>
+            </div>
+            <div class="inputDiv">
+                <label for="aggSize">المقاس الاعتباري الأكبر للركام الكبير مم: </label>
+                <input type="number" id="aggSize" required placeholder="مطلوب">
+            </div>
+            <div class="inputDiv">
+                <label for="isAggStateCrushed">هل الكام مكسر ؟ : </label>
+                <input type="checkbox" id="isAggStateCrushed" required>
+            </div>
+            <div class="inputDiv">
+                <label for="isCementTypeRapid">هل الأسمنت سريع التصلد ؟ :</label>
+                <input type="checkbox" id="isCementTypeRapid" required>
+            </div>
+            <div class="inputDiv">
+                <label for="slump">قابلية التشغيل :</label>
+                <select name="" id="slump" required>
+                    <option value="A">خلطة جافة جدا هبوط من 0 إلي 10 مم </option>
+                    <option value="B">خلطة جافة  هبوط من 10 إلي 30 مم </option>
+                    <option value="C" selected>خلطة لدنة هبوط من 30 إلي 60 مم </option>
+                    <option value="D">خلطة منهارة للمضخات هبوط من 60 إلي 180 مم </option>
+                </select>
+            </div>
+            <div class="inputDiv">
+                <label for="">عدد مرات الخبرة :</label>
+                <label for="numberOfdoingmorethan40">أكثر من 40 :</label>
+                <input type="radio" name="numberOfdoing" id="numberOfdoingmorethan40" value="50" required>
+                <label for="numberOfdoinglessthan40">أقل أو يساوي 40 :</label>
+                <input type="radio" name="numberOfdoing" id="numberOfdoinglessthan40" value="0" required checked>
+            </div>
+            <div class="inputDiv">
+                <label for="sigma">معامل التشتت إن وجد كحم/سم مربع : </label>
+                <input type="number" id="sigma" placeholder="اختياري">
+            </div>
+            <div class="inputDiv">
+                <label for="sand">نعومة الرمل : </label>
+                <select name="" id="sand" required>
+                    <option value="0">رمل خشن</option>
+                    <option value="1">رمل متوسط النعومة</option>
+                    <option value="2">رمل ناعم</option>
+                    <option value="3">رمل ناعم جدا</option>
+                </select>
+            </div>
+            <div class="inputDiv">
+                <label for="mixture">حجم الخلاطة بالمتر المربع :</label>
+                <input type="number" name="" id="mixture" placeholder="مطلوب">
+            </div>
+            <div class="buttonDiv">
+                <button id="doneButton">إظهار الكميات</button>
+            </div>
+        </div>
+
+        
+<!-- results  -->
+        <div class="results">
+            <hr>
+            <div class="partTitle">كميات الخلطة الخرسانية</div>
+            <div class="table">
+                <div class="tableTitle">بيانات للمتر المكعب</div>
+                <div class="tableColumn">
+                    <div class="columnHead">المقاومة المستهدفة</div>
+                    <div class="columnbody" id="FtargetOutput">.....</div>
+                </div>
+                <div class="tableColumn">
+                    <div class="columnHead">كمية المياه لتر</div>
+                    <div class="columnbody" id="waterOutput">.....</div>
+                </div>
+                <div class="tableColumn">
+                    <div class="columnHead">وزن الأسمنت كجم</div>
+                    <div class="columnbody" id="cementOutput">.....</div>
+                </div>
+                <div class="tableColumn">
+                    <div class="columnHead">نسبة م إلي س</div>
+                    <div class="columnbody" id="WCoutput">.....</div>
+                </div>
+                <div class="tableColumn">
+                    <div class="columnHead">الحجم الكلي المطلق للركام لتر</div>
+                    <div class="columnbody" id="totalAggVolOutput">.....</div>
+                </div>
+                <div class="tableColumn">
+                    <div class="columnHead">حجم مطلق الركام الكبير لتر</div>
+                    <div class="columnbody" id="largAggVolOutput">.....</div>
+                </div>
+                <div class="tableColumn">
+                    <div class="columnHead">حجم مطلق الركام الصغير لتر</div>
+                    <div class="columnbody" id="smallAggVolOutput">.....</div>
+                </div>
+            </div>
+            <div class="table">
+                <div class="tableTitle">الكميات للخلاطة</div>
+                <div class="tableColumn">
+                    <div class="columnHead">كمية المياه لتر</div>
+                    <div class="columnbody" id="waterOutputPrecentage">.....</div>
+                </div>
+                <div class="tableColumn">
+                    <div class="columnHead">كمية المياه بالمتر</div>
+                    <div class="columnbody" id="waterOutputMeterPrecentage">.....</div>
+                </div>
+                <div class="tableColumn">
+                    <div class="columnHead">عدد الشكائر</div>
+                    <div class="columnbody" id="cementOutputPrecentage">.....</div>
+                </div>
+                <div class="tableColumn">
+                    <div class="columnHead">الحجم الحقيقي للسن بالمتر</div>
+                    <div class="columnbody" id="largAggVolMeterPrecentage">.....</div>
+                </div>
+                <div class="tableColumn">
+                    <div class="columnHead">الحجم الحقيقي للسن باللتر</div>
+                    <div class="columnbody" id="largAggVolLiterPrecentage">.....</div>
+                </div>
+                <div class="tableColumn">
+                    <div class="columnHead">الحجم الحقيقي للرمل بالمتر</div>
+                    <div class="columnbody" id="smallAggVolMeterPrecentage">.....</div>
+                </div>
+                <div class="tableColumn">
+                    <div class="columnHead">الحجم الحقيقي للرمل باللتر</div>
+                    <div class="columnbody" id="smallAggVolLiterPrecentage">.....</div>
+                </div>
+                <div class="tableColumn">
+                    <div class="columnHead">كفاءة الخلاطة</div>
+                    <div class="columnbody" id="efficiency">.....</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+    <script src="./styleScript.js"></script>
+</body>
+</html>
